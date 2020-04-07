@@ -5,10 +5,10 @@ module.exports = {
       name: `Gregory Gerken`,
       summary: `who lives and works in Dayton, Ohio creating art and designing things for friends.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `A web portal to display some of my work and a means for connecting with me for work.`,
+    siteUrl: `https://dim-initiatives.netlify.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `gregorygerken`,
     },
   },
   plugins: [
