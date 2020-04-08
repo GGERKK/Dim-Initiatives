@@ -11,11 +11,14 @@ const Layout = ({ location, title, children }) => {
     header = (
       <h1
         style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
+          ...scale(0.5),
+          fontWeight: 400,
+          marginLeft: rhythm(2.25),
+          marginBottom: rhythm(0.5),
+          marginTop: rhythm(2),
         }}
       >
+      {`Hello, I'm `}
         <Link
           style={{
             boxShadow: `none`,
@@ -58,10 +61,8 @@ const Layout = ({ location, title, children }) => {
     >
       <header>{header}</header>
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      <footer style={{ marginLeft: rhythm(2.25), fontSize: `0.6em`, position: `fixed`, bottom: 30 }}>
+        © {new Date().getFullYear()} Gregory Gerken {`💛`}
       </footer>
     </div>
   )

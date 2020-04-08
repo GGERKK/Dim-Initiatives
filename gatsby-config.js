@@ -1,12 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Dim Initiatives`,
+    title: `Gregory Gerken`,
     author: {
       name: `Gregory Gerken`,
-      summary: `who lives and works in Dayton, Ohio creating art and designing things for friends.`,
+      summary: `I currently live and work in Dayton, OH. My personal
+      practice centers around graphic design with a heavy lean on experimental
+      media. I'm into meeting new friends who are passionate about doing good
+      work for their community. If that's you let's talk!`,
     },
-    description: `A web portal to display some of my work and a means for connecting with me for work.`,
-    siteUrl: `https://dim-initiatives.netlify.com/`,
+    description: `A web portal to display some of my work and a way to
+    connect with me.`,
+    siteUrl: `https://gregorygerken.com/`,
     social: {
       twitter: `gregorygerken`,
     },

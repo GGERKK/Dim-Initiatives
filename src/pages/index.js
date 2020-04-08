@@ -1,3 +1,11 @@
+/*
+to do:
+  - finish gatsby intro tutorial thing
+  - look deeper into prismjs for context with this project
+  - massage this site into a nice little portfolio site!
+  - get to work on the RV clinic site with this knowledge ;)
+*/
+
 import React from "react"
 import { Link, graphql } from "gatsby"
 
@@ -11,36 +19,9 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} /* title={siteTitle} */>
+    <Layout location={location} title={siteTitle} >
       <SEO title="Welcome" />
       <Bio />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
-      <Link to="/about/">About</Link>
     </Layout>
   )
 }
