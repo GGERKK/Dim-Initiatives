@@ -6,7 +6,7 @@ module.exports = {
       summary: `I currently live and work in Dayton, OH. My personal
       practice centers around graphic design with a heavy lean on experimental
       media. I'm into meeting new friends who are passionate about doing good
-      work for their community. If that's you let's talk!`,
+      work for their community.`,
     },
     description: `A web portal to display some of my work and a way to
     connect with me.`,
