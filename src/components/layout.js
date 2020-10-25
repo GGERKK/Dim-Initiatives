@@ -1,71 +1,72 @@
 import React from "react"
-import { Link } from "gatsby"
+import styled from "@emotion/styled"
+import { jsx, css, keyframes } from "@emotion/core"
+import P5Wrapper from "react-p5-wrapper"
+import sketch from "../components/sketch"
 
-import { rhythm, scale } from "../utils/typography"
+// Using css prop provides a concise and flexible API to style the components //
+const underline = css`
+  text-decoration: underline;
+`
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
+const breakpoints = [576, 768, 992, 1200]
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(0.5),
-          fontWeight: 400,
-          marginLeft: rhythm(2.25),
-          marginBottom: rhythm(0.5),
-          marginTop: rhythm(2),
-        }}
-      >
-      {`Hello, I'm `}
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
+const mq = breakpoints.map(
+  bp => `@media (max-width: ${bp}px)`
+)
+
+const Frame = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0;
+  padding: 0 0;
+`
+
+const BottomFrame = styled.div`
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  border-top: 2px solid black;
+  background: rgba(25, 25, 25, 0.85);
+  color: rgb(250, 250, 240);
+  ${mq[1]} {
+    flex-wrap: wrap;
   }
-  return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer style={{ marginLeft: rhythm(2.25), fontSize: `0.6em`, position: `fixed`, bottom: 30 }}>
-        © {new Date().getFullYear()} Gregory Gerken {`💛`}
-      </footer>
-    </div>
-  )
-}
+`
 
-export default Layout
+const TopContent = styled.div`
+ /* Write something here */
+`
+
+const Sketch = styled.div`
+
+`
+
+const bounce = keyframes`
+  from {
+    filter: blur(10px);
+  }
+
+  to {
+    filter: blur(0px);
+  }
+`
+
+export default ({ children }) => (
+  <Frame>
+    <BottomFrame>
+      {children}
+    </BottomFrame>
+    <Sketch css={css`
+    animation: ${bounce} 3s ease 1;
+    `}>
+      <P5Wrapper sketch={sketch}/>
+    </Sketch>
+
+    <Sketch css={css`
+    animation: ${bounce} 3s ease 1;
+    `}>
+      <P5Wrapper sketch={sketch}/>
+    </Sketch>
+  </Frame>
+)

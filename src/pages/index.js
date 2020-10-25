@@ -1,54 +1,46 @@
-/*
-to do:
-  - finish gatsby intro tutorial thing
-  - look deeper into prismjs for context with this project
-  - massage this site into a nice little portfolio site!
-  - get to work on the RV clinic site with this knowledge ;)
-*/
-
 import React from "react"
-import { Link, graphql } from "gatsby"
+import styled from "@emotion/styled"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import Project from "../components/project"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+const breakpoints = [576, 768, 992, 1200]
 
-  return (
-    <Layout location={location} title={siteTitle} >
-      <SEO title="Welcome" />
-      <Bio />
-    </Layout>
-  )
-}
+const mq = breakpoints.map(
+  bp => `@media (max-width: ${bp}px)`
+)
 
-export default BlogIndex
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
-        }
-      }
-    }
+const Container = styled.div`
+  margin: 0 auto;
+  padding: 0 0;
+  width: 50%;
+  /* overflow: hidden; */
+  ${mq[1]} {
+    width: 100%;
   }
 `
+
+const About = styled.div`
+  display: block;
+  margin: 0 auto;
+  padding: 18px 12px;
+`
+
+export default () => (
+  <Layout>
+    <Container>
+      <About>
+        <h1>About the creative practice of Gregory Gerken</h1>
+        <p>I'm currently taking on select projects. Send me an email and let's explore working together.</p>
+        <a href="">Resume</a>
+      </About>
+      {/* <Project
+        projectname="Marble Croquet"
+        excerpt="Product / Game / Craft"
+      /> */}
+    </Container>
+    <Container>
+    <p style={{ textAlign:`center`, verticalAlign:`middle` }}>images!</p>
+    </Container>
+  </Layout>
+)
